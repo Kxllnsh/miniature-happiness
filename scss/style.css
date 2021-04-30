@@ -1,0 +1,226 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  padding: 3em 5em;
+  background: #1e202a;
+  color: white;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  z-index: 5;
+}
+
+.lime-green {
+  display: flex;
+  align-items: center;
+  color: #1db489;
+}
+.lime-green img {
+  margin-right: 0.5em;
+}
+
+.red {
+  display: flex;
+  align-items: center;
+  color: #dc414c;
+}
+.red img {
+  margin-right: 0.5em;
+}
+
+.social-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 3em;
+  z-index: 4;
+}
+.social-header p {
+  color: #8b97c6;
+}
+.social-header .dark-mode {
+  display: flex;
+  align-items: center;
+}
+.social-header .dark-mode .switch {
+  margin-left: 0.5em;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 4rem;
+  height: 2.125rem;
+}
+.social-header .dark-mode .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.social-header .dark-mode .switch input:checked + .slider::before {
+  -webkit-transform: translateX(21px);
+  -ms-transform: translateX(21px);
+  transform: translateX(21px);
+}
+.social-header .dark-mode .switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, #378fe6, #3eda82);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.social-header .dark-mode .switch .slider::before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 2px;
+  background-color: black;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.social-header .dark-mode .switch .round {
+  border-radius: 2.125rem;
+}
+.social-header .dark-mode .switch .round::before {
+  border-radius: 50%;
+}
+
+.stats-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-gap: 2em;
+}
+.stats-grid .card {
+  width: 100%;
+  min-height: 17rem;
+  padding: 2em;
+  background: #252a41;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: 0.2s;
+}
+.stats-grid .card:hover {
+  background: gray;
+}
+.stats-grid .card .socials {
+  display: flex;
+}
+.stats-grid .card .socials img {
+  margin-right: 0.5em;
+}
+.stats-grid .card .socials p {
+  color: #8b97c6;
+}
+.stats-grid .card .followers-count {
+  text-align: center;
+}
+.stats-grid .card .followers-count h1 {
+  font-size: 2.5rem;
+}
+.stats-grid .card .followers-count p {
+  color: #8b97c6;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.overview {
+  margin-top: 3em;
+}
+.overview h1 {
+  margin-bottom: 0.5em;
+}
+.overview .overview-card {
+  width: 100%;
+  min-height: 10rem;
+  padding: 1.5em 2em;
+  background: #252a41;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 0.5rem;
+  transition: 0.2s;
+}
+.overview .overview-card:hover {
+  background: gray;
+}
+.overview .overview-card .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.overview .overview-card .title h2 {
+  color: #8b97c6;
+}
+.overview .overview-card .card-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.overview .overview-card .card-stats h1 {
+  font-size: 2rem;
+}
+@media screen and (max-width: 500px) {
+  html {
+    padding: 2em 2em;
+  }
+
+  body {
+    font-size: 12px;
+  }
+
+  .social-header {
+    flex-direction: column;
+  }
+
+  .dark-mode {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: unset !important;
+    margin-top: 1em;
+  }
+  .dark-mode .switch {
+    margin-top: 0.5rem;
+    margin-left: 0;
+  }
+
+  .followers-count h1 {
+    font-size: 1.5rem !important;
+  }
+
+  .card-stats h1 {
+    font-size: 1.5rem !important;
+  }
+}
+@media screen and (max-width: 347px) {
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)) !important;
+  }
+}
+.light-mode {
+  background: white !important;
+  color: #000 !important;
+}
+
+.light-card-bg {
+  background: #f0f2fa !important;
+}
+
+/*# sourceMappingURL=style.css.map */

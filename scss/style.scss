@@ -1,0 +1,280 @@
+$background: hsl(230, 17%, 14%);
+$secondary-background: hsl(232, 19%, 15%);
+$card-background: hsl(228, 28%, 20%);
+$Desaturated-text-color: hsl(228, 34%, 66%);
+$text-color: white;
+$cards-hover: hsl(0, 0%, 50%);
+$black: black;
+
+*,
+*::after,
+*::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  padding: 3em 5em;
+  background: $background;
+  color: $text-color;
+}
+body{
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  z-index: 5;
+}
+
+.lime-green{
+  display: flex;
+  align-items: center;
+  color: hsl(163, 72%, 41%);
+
+  img{
+    margin-right: .5em;
+  }
+}
+
+.red{
+  display: flex;
+  align-items: center;
+  color: hsl(356, 69%, 56%);
+
+  img{
+    margin-right: .5em;
+  }
+}
+//.floating-color{
+//  position: absolute;
+//  top: 0;
+//  left: 0;
+//  background: $secondary-background;
+//  width: 100%;
+//  min-height: 30vh;
+//  z-index: 1;
+//}
+//social header styling
+.social-header{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 3em;
+  z-index: 4;
+
+  p{
+    color: $Desaturated-text-color
+  }
+
+  .dark-mode{
+    display: flex;
+    align-items: center;
+
+    .switch{
+      margin-left: .5em;
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 4rem;
+      height: 2.125rem;
+
+      input{
+        opacity: 0;
+        width: 0;
+        height: 0;
+
+        &:checked + .slider::before{
+          -webkit-transform: translateX(21px);
+          -ms-transform: translateX(21px);
+          transform: translateX(21px);
+        }
+      }
+
+      .slider{
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to right, hsl(210, 78%, 56%),
+                    hsl(146, 68%, 55%));
+        -webkit-transition: .4s;
+        transition: .4s;
+
+        &::before{
+          position: absolute;
+          content: "";
+          height: 26px;
+          width: 26px;
+          left: 4px;
+          bottom: 2px;
+          background-color: $black;
+          -webkit-transition: .4s;
+          transition: .4s;
+        }
+      }
+
+      .round{
+        border-radius: 2.125rem;
+
+        &::before{
+          border-radius:50%;
+        }
+      }
+
+    }
+  }
+}
+
+//cards grid section styling
+.stats-grid{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-gap: 2em;
+
+  .card{
+    width: 100%;
+    min-height: 17rem;
+    padding: 2em;
+    background: $card-background;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    border-radius: .5rem;
+    transition: .2s;
+
+    &:hover{
+      background: $cards-hover;
+    }
+
+    .socials{
+      display: flex;
+
+      img{
+        margin-right: .5em;
+      }
+
+      p{
+        color: $Desaturated-text-color;
+      }
+    }
+
+    .followers-count{
+      text-align: center;
+
+      h1{
+        font-size: 2.5rem;
+      }
+
+      p{
+        color: $Desaturated-text-color;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+    }
+  }
+}
+
+//overview styling
+.overview{
+  margin-top: 3em;
+
+  h1{
+    margin-bottom: .5em;
+  }
+
+  .overview-card{
+    width: 100%;
+    min-height: 10rem;
+    padding: 1.5em 2em;
+    background: $card-background;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: .5rem;
+    transition: .2s;
+
+    &:hover{
+      background: $cards-hover;
+    }
+
+    .title{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h2{
+        color: $Desaturated-text-color;
+      }
+    }
+
+    .card-stats{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      h1{
+        font-size: 2rem;
+      }
+
+      p{
+
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px){
+  html{
+    padding: 2em 2em;
+  }
+
+  body{
+    font-size: 12px;
+  }
+  .social-header{
+    flex-direction: column;
+  }
+
+  .dark-mode{
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: unset !important;
+    margin-top: 1em;
+
+    .switch{
+      margin-top: .5rem;
+      margin-left: 0;
+    }
+  }
+
+  .followers-count{
+    h1{
+      font-size: 1.5rem !important;
+    }
+  }
+
+  .card-stats{
+    h1{
+      font-size: 1.5rem !important;
+    }
+  }
+}
+
+@media screen and (max-width: 347px){
+  .stats-grid{
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)) !important;
+  }
+}
+
+.light-mode{
+  background: white !important;
+  color: #000 !important;
+}
+.light-card-bg{
+  background: hsl(227, 47%, 96%) !important;
+}
